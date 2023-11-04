@@ -7,7 +7,7 @@ public class PlayLogic : MonoBehaviour
 {
     public void Scenes()
     {
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("lvl01");
 
     }
     public GameObject pauseMenuUI;
