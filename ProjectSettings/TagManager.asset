@@ -7,6 +7,8 @@ TagManager:
   - BG_MUSIC_VOLUME
   - BG_MUSIC_VOLUME_TEXT
   - BG_MUSIC_CREATED
+  - win
+  - lose
   layers:
   - Default
   - TransparentFX

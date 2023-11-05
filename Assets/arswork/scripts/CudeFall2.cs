@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class CubeFall1 : MonoBehaviour
+public class CudeFall2 : MonoBehaviour
 {
     public GameObject UwOn;
 
@@ -16,12 +16,12 @@ public class CubeFall1 : MonoBehaviour
         }
         if (collision.gameObject.tag == "lose")
         {
-            SceneManager.LoadScene("lvl01");
+            SceneManager.LoadScene("lvl02");
         }
     }
     IEnumerator NextLVL()
     {
         yield return new WaitForSeconds(1.25f);
-        SceneManager.LoadScene("lvl02");
+        SceneManager.LoadScene("menu");
     }
 }

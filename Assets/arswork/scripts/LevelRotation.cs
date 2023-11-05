@@ -4,7 +4,7 @@ using UnityEngine;
 public class LevelRotation : MonoBehaviour
 {
     public Transform Level, cube;
-    bool rotateble = true;   
+    bool rotateble = true;
 
     void Update()
     {
@@ -44,17 +44,18 @@ public class LevelRotation : MonoBehaviour
         }
     }
     */
+    
     IEnumerator NotSoSmoothRotate(Vector3 rotationVec)
     {
         rotateble = false;
         int angle = 0;
         while (angle < 90)
         {
-            print(angle);
             Level.RotateAround(Level.position, rotationVec, 1);
             angle += 1;
             yield return new WaitForSeconds(0.001f);
         }
+        //yield return new WaitForSeconds(1.25f);
         rotateble = true;
     }
 }
