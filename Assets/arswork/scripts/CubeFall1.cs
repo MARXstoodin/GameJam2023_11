@@ -8,11 +8,11 @@ public class CubeFall1 : MonoBehaviour
     void Update()
     {
         Ray ray = new Ray(transform.position, -transform.up);
-        Debug.DrawRay(transform.position, -transform.up, Color.red);
-        if(Physics.Raycast(ray))
+        if(Physics.Raycast(ray,100))
             isFalling = true;
-        if(isFalling)
-            transform.position = new Vector3(transform.position.x, transform.position.y-1, transform.position.z);
+        Debug.DrawRay(transform.position, -transform.up, Color.red, 2f);
+        if (isFalling)
+            transform.position = new Vector3(transform.position.x, transform.position.y-0.01f, transform.position.z);
 
     }
     private void OnCollisionEnter(Collision collision)
