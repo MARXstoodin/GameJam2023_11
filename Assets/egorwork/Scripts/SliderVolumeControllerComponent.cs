@@ -57,13 +57,13 @@ public class SliderVolumeControllerComponent : MonoBehaviour
                 PlayerPrefs.SetFloat(this.saveVolumeKey, this.volume);
             }
 
-            GameObject textObj = GameObject.FindWithTag(this.textVolumeTag);
+            /*GameObject textObj = GameObject.FindWithTag(this.textVolumeTag);
             if (textObj != null)
             {
                 this.text = textObj.GetComponent<Text>();
 
                 this.text.text = Mathf.Round( f: this.volume * 100)+"%";
-            }
+            }*/
         }
         
         this.audio.volume = this.volume;
