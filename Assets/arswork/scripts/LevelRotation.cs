@@ -5,27 +5,36 @@ using UnityEngine.UIElements;
 using static UnityEditor.Experimental.AssetDatabaseExperimental.AssetDatabaseCounters;
 using static UnityEngine.GraphicsBuffer;
 
-public class cubeFall : MonoBehaviour
+public class LevelRotation : MonoBehaviour
 {
-    public Transform Level;
+    public Transform Level, cube;
+    bool rotateble = true;   
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.W))
+        if (Input.GetKeyDown(KeyCode.W) && rotateble)
         {
             StartCoroutine(NotSoSmoothRotate(new Vector3(1, 0, 0)));
         }
-        else if (Input.GetKeyDown(KeyCode.A))
+        else if (Input.GetKeyDown(KeyCode.S) && rotateble)
         {
-            NotSoSmoothRotate(new Vector3(0, 1, 0));
+            StartCoroutine(NotSoSmoothRotate(new Vector3(-1, 0, 0)));
         }
-        else if(Input.GetKeyDown(KeyCode.S))
+        else if (Input.GetKeyDown(KeyCode.A) && rotateble)
         {
-            NotSoSmoothRotate(new Vector3(-1, 0, 0));
+            StartCoroutine(NotSoSmoothRotate(new Vector3(0, 1, 0)));
         }
-        else if(Input.GetKeyDown(KeyCode.D))
+        else if (Input.GetKeyDown(KeyCode.D) && rotateble)
         {
-            NotSoSmoothRotate(new Vector3(0, -1, 0));
+            StartCoroutine(NotSoSmoothRotate(new Vector3(0, -1, 0)));
+        }
+        else if (Input.GetKeyDown(KeyCode.Q) && rotateble)
+        {
+            StartCoroutine(NotSoSmoothRotate(new Vector3(0, 0, 1)));
+        }
+        else if (Input.GetKeyDown(KeyCode.E) && rotateble)
+        {
+            StartCoroutine(NotSoSmoothRotate(new Vector3(0, 0, -1)));
         }
     }
     /*
@@ -41,13 +50,15 @@ public class cubeFall : MonoBehaviour
     */
     IEnumerator NotSoSmoothRotate(Vector3 rotationVec)
     {
+        rotateble = false;
         int angle = 0;
         while (angle < 90)
         {
             print(angle);
-            Level.RotateAround(Level.position, rotationVec, 10);
-            angle += 10;
-            yield return new WaitForSeconds(1f);
+            Level.RotateAround(Level.position, rotationVec, 1);
+            angle += 1;
+            yield return new WaitForSeconds(0.001f);
         }
+        rotateble = true;
     }
 }
